@@ -18,4 +18,6 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 
 #ENV TZ="Asia/Dhaka"
 
+RUN gpasswd -a jenkins docker
+
 USER jenkins
