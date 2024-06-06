@@ -4,7 +4,7 @@ USER root
 
 RUN curl -fsSL https://get.docker.com | sh
 
-RUN chmod 777 /var/run/docker.sock
+#RUN chmod 777 /var/run/docker.sock
 
 #RUN apt-get update && apt-get install -y lsb-release
 
@@ -18,6 +18,6 @@ RUN chmod 777 /var/run/docker.sock
 
 #RUN apt-get update && apt-get install -y docker.io
 
-#RUN gpasswd -a jenkins docker
+RUN gpasswd -a jenkins docker
 
 USER jenkins
