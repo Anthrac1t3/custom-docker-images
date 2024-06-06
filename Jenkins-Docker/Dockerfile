@@ -18,6 +18,6 @@ RUN apt-get update && apt-get install -y docker.io
 
 #ENV TZ="Asia/Dhaka"
 
-RUN gpasswd -a jenkins docker
+#RUN gpasswd -a jenkins docker
 
 USER jenkins
