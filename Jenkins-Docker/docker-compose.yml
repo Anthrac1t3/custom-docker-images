@@ -4,7 +4,7 @@ services:
     build: 
       context: .
       dockerfile: ./Dockerfile
-    image: jenkins-jdk-17
+    image: jenkins/jenkins:latest-jdk17
     container_name: jenkins-jdk-17
     privileged: true
     user: root
