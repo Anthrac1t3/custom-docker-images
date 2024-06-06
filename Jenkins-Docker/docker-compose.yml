@@ -9,6 +9,8 @@ services:
     privileged: true
     user: root
     restart: always
+    network: bridge
+    hostname: jenkins.coles-lab.com
     ports:
       - 8080:8080
       - 50000:50000
