@@ -2,22 +2,20 @@ FROM jenkins/jenkins:latest-jdk17
 
 USER root
 
-RUN curl -fsSL https://get.docker.com | sh
+RUN apt-get update && apt-get install -y lsb-release
 
-#RUN chmod 777 /var/run/docker.sock
+RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
+  https://download.docker.com/linux/debian/gpg
 
-#RUN apt-get update && apt-get install -y lsb-release
+RUN echo "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
+  https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
 
-#RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
-#  https://download.docker.com/linux/debian/gpg
+RUN apt-get update && apt-get install -y docker-ce-cli
 
-#RUN echo "deb [arch=$(dpkg --print-architecture) \
-#  signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
-#  https://download.docker.com/linux/debian \
-#  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
+#RUN apt update && apt install tzdata -y
 
-#RUN apt-get update && apt-get install -y docker.io
-
-RUN gpasswd -a jenkins docker
+#ENV TZ="Asia/Dhaka"
 
 USER jenkins
