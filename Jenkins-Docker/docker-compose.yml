@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     image: jenkins/jenkins:latest-jdk17
-    container_name: jenkins-jdk-17
+    container_name: jenkins-jdk17
     privileged: true
     user: root
     restart: always
